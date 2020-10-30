@@ -1,0 +1,280 @@
+/*
+Theme Name: Twenty Twenty child
+Text Domain: twentytwenty-child
+Version: 1
+Requires at least: 4.7
+Requires PHP: 5.2.4
+Template: twentytwenty
+Description: Our default theme for 2020 is designed to take full advantage of the flexibility of the block editor. Organizations and businesses have the ability to create dynamic landing pages with endless layouts using the group and column blocks. The centered content column and fine-tuned typography also makes it perfect for traditional blogs. Complete editor styles give you a good idea of what your content will look like, even before you publish. You can give your site a personal touch by changing the background colors and the accent color in the Customizer. The colors of all elements on your site are automatically calculated based on the colors you pick, ensuring a high, accessible color contrast for your visitors.
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Author: Waldo Milanes
+Author URI: https://wordpress.org/
+Theme URI: https://wordpress.org/themes/twentytwenty/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+All files, unless otherwise stated, are released under the GNU General Public
+License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned
+with others.
+*/
+:root{
+    --color_secondary: #555;
+    --color_primary: #d9ad9b;
+    --third: #c3adaa;
+    --black: #1f1c20;
+    --white: #ffffff;
+}
+@font-face {
+    font-family: Lato;
+    src: url(./assets/fonts/Lato-Regular.ttf) format("ttf");
+}
+
+@font-face {
+	font-family: "Inter var";
+	font-weight: 100 900; /* stylelint-disable-line font-weight-notation */
+	font-style: normal;
+	font-display: swap;
+	src: url(./assets/fonts/Lato-Regular.ttf) format("ttf");
+}
+
+@font-face {
+	font-family: "Inter var";
+	font-weight: 100 900; /* stylelint-disable-line font-weight-notation */
+	font-style: italic;
+	font-display: swap;
+	src: url(./assets/fonts/Lato-Italic.ttf) format("ttf");
+}
+.primary-menu > li > .icon{
+       color: var(--color_secondary) !important;
+}
+
+
+
+
+
+
+/* NAVIGATION >>> */
+
+.site-logo  {
+	margin: 0 ;
+	padding: 0 ;
+    
+}
+.site-logo img {
+	max-height: 4rem;
+	margin: 0 auto;
+    width: auto;
+    transition: .5s all ease-in-out;
+}
+    .site-logo:hover img{
+        /* transform: rotate(90deg); */
+    }
+    .site-logo:before{
+        content: "PERFECT";
+        position: absolute;
+        font-size: 1.3em;
+        color: var(--color_primary);
+        transform: translateX(-20px);
+        transition: .6s .4s all ease-in-out;
+        opacity: 0;
+        z-index: -1;
+    }
+    .site-logo:hover::before{
+        color: var(--color_primary);
+        transform: translateX(17px);
+        opacity: 1;
+    }
+    @media only screen and ( min-width: 999px )  {
+        .site-logo:hover::before{
+        transform: translateX(40px);
+        opacity: 1;
+    }
+}
+
+.header-inner {
+    max-width: 168rem;
+	padding: 2rem 0;
+	z-index: 100;
+}
+
+
+ul.primary-menu li a {
+    color: var(--color_secondary) !important;
+    font-weight: 500;
+    font-size: 1.5rem;
+    transition: .3s all ease-in-out;
+    font-family: Inter var !important;
+}
+body:not(.overlay-header) .primary-menu ul{
+    color: var(--color_secondary) !important;
+    background: var(--white) !important;
+    border: var(--color_secondary) 2px solid;
+}
+/* .menu-item-has-children ul li a {
+    color: var(--color_primary) !important;
+   
+} */
+ul.primary-menu li a:hover {
+    color: var(--color_primary) !important;
+}
+a {
+    
+    text-decoration: underline;
+}
+a:hover,
+a:focus {
+    text-decoration: none !important;
+    color: var(--color_secondary) !important;
+}
+
+.primary-menu a:hover,
+.primary-menu a:focus,
+.primary-menu .current_page_ancestor {
+    text-decoration: none;
+    padding: 3px 6px;
+}
+
+.primary-menu li.current-menu-item > a,
+.primary-menu li.current-menu-item > .link-icon-wrapper > a {
+    border-bottom: 2px solid var(--color_primary);
+    text-decoration: none;
+    padding: 3px 8px;
+}
+
+.primary-menu li.current-menu-item > a:hover,
+.primary-menu li.current-menu-item > .link-icon-wrapper > a:hover,
+.primary-menu li.current-menu-item > a:focus,
+.primary-menu li.current-menu-item > .link-icon-wrapper > a:focus {
+	text-decoration: none;
+}
+
+/* SIDE MENU >>> */
+.toggle-text{
+    color: var(--color_secondary) !important;
+}
+.modal-menu a, .svg-icon{
+    color: var(--color_secondary) !important;
+    transition: .4s all ease-in-out;
+}
+.modal-menu a:hover, .modal-menu a:active
+, .svg-icon:hover, .svg-icon:active{
+    color: var(--third) !important;
+}
+/* SIDE MENU >>> */
+
+/* <<< NAVIGATION*/
+
+
+/* ENTRIES >>> */
+.entry-title-smaller{
+    font-size: 2.3em;
+    color: var(--color_secondary);
+}
+.entry-content {
+    font-family: Inter var;
+    letter-spacing: normal;
+    color: var(--color_secondary);
+}
+/*<<< ENTRIES*/
+
+
+/* FOOTER >>> */
+#site-footer.header-footer-group,
+#site-footer.header-footer-group a{
+    background-color: var(--black);
+    color:var(--white);
+}
+/* <<< FOOTER */
+
+
+/* LANDING PAGE >>> */
+.post-inner.landing-page{
+    width: 100% !important;
+    margin-top: 5px;
+    padding-top:5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    @media only screen and ( min-width: 999px )  {
+        .post-inner.landing-page{
+            margin: 0 2%;
+            width: 96%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            
+        }
+    }
+
+    /* LEFT SIDE DESCRIPTION >>> */
+    .entry-content.landing-page{
+        margin-bottom: 50px;
+    }
+        @media only screen and ( min-width: 999px )  {
+            .entry-content.landing-page{
+                grid-column: 1/2;
+                width: 392px;
+                margin-bottom: 24px;
+            }
+        }
+
+
+    .welcome.landing-page{
+        font-size: 1.2em;
+        font-weight: 600;
+        color: var(--color_secondary);
+    }
+    .__description {
+        margin-top: 5px;
+        color: var(--color_secondary);
+        font-size: 18px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+    }
+    .hero-button{
+        margin-top: 20px;
+        transition: .4s  all ease-in-out;
+        border-radius: 5px;
+        background: var(--color_secondary) !important;
+    }
+    .hero-button:hover, .hero-button:active{
+        box-shadow: 5px 7px 20px 0 #999999;
+        color: var(--color_primary) !important;
+      
+    }
+    /* <<< LEFT SIDE DESCRIPTION */
+
+
+    /* RIGHT SIDE DESCRIPTION >>> */
+    .section-inner.medium.landing-page { 
+        display: flex;
+        margin-bottom: -3px;
+        width: 100%;
+        height: 100%;
+    } 
+        @media only screen and ( min-width: 999px ) {
+            .section-inner.medium.landing-page {
+                grid-column: 2/3 ;
+                display:flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                /* padding-left: 150px; */
+                left:2%;
+                margin-bottom: -30px;
+            }
+        }
+
+    .section-inner.medium.landing-page img {
+        align-self: flex-end;
+        margin-bottom: -5px;
+        right:-1px;
+    }
+    /* <<< RIGHT SIDE DESCRIPTION*/
+
+
+ 
