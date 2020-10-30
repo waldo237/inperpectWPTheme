@@ -81,12 +81,26 @@
 
 <!-- SECOND ROW -->
 	<div class="post-inner second-row <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
-		<div class="entry-content  landing-page">
+	
 			<?php
 		if ( ! is_search() ) {
 					get_template_part( 'searchform' );
 				}
 		?>
+		<div class="taxonomy-1">
+
+
+
+
+		
+
+		<?php get_template_part( './assets/icons/bahai.svg' ) ?>
+
+
+
+
+
+
 		</div>
 	</div>
 <!-- SECOND ENDS -->

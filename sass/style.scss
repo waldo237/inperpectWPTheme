@@ -47,12 +47,23 @@ with others.
 	font-display: swap;
 	src: url(./assets/fonts/Lato-Italic.ttf) format("ttf");
 }
+@mixin bp($point) {
+    @if $point == desktop {
+      @media (min-width: 999px) { @content; }
+    }
+    @else if $point == navigation {
+      @media (min-width: 819px) { @content; }
+    }
+    @else if $point == tablet {
+      @media (min-width: 640px) { @content; }
+    }
+    @else if $point == mid-phone {
+      @media (min-width: 350px) { @content; }
+    }
+  }
 .primary-menu > li > .icon{
        color: var(--color_secondary) !important;
 }
-
-
-
 
 
 
@@ -61,37 +72,33 @@ with others.
 .site-logo  {
 	margin: 0 ;
 	padding: 0 ;
+    img {
+       max-height: 4rem;
+       margin: 0 auto;
+       width: auto;
+       transition: .5s all ease-in-out;
+   }
+
+   &:before{
+       content: "PERFECT";
+       position: absolute;
+       font-size: 1.3em;
+       color: var(--color_primary);
+       transform: translateX(-20px);
+       transition: .6s .4s all ease-in-out;
+       opacity: 0;
+       z-index: -1;
+   }
     
-}
-.site-logo img {
-	max-height: 4rem;
-	margin: 0 auto;
-    width: auto;
-    transition: .5s all ease-in-out;
-}
-    .site-logo:hover img{
-        /* transform: rotate(90deg); */
-    }
-    .site-logo:before{
-        content: "PERFECT";
-        position: absolute;
-        font-size: 1.3em;
-        color: var(--color_primary);
-        transform: translateX(-20px);
-        transition: .6s .4s all ease-in-out;
-        opacity: 0;
-        z-index: -1;
-    }
-    .site-logo:hover::before{
-        color: var(--color_primary);
-        transform: translateX(17px);
-        opacity: 1;
-    }
-    @media only screen and ( min-width: 999px )  {
-        .site-logo:hover::before{
-        transform: translateX(40px);
-        opacity: 1;
-    }
+   &:hover::before{
+       color: var(--color_primary);
+       transform: translateX(17px);
+       opacity: 1;
+    //    @include bp(desktop) {
+    //     transform: translateX(40px);
+    //     opacity: 1;
+    //    }
+   }
 }
 
 .header-inner {
@@ -113,10 +120,7 @@ body:not(.overlay-header) .primary-menu ul{
     background: var(--white) !important;
     border: var(--color_secondary) 2px solid;
 }
-/* .menu-item-has-children ul li a {
-    color: var(--color_primary) !important;
-   
-} */
+
 ul.primary-menu li a:hover {
     color: var(--color_primary) !important;
 }
@@ -276,5 +280,44 @@ a:focus {
     }
     /* <<< RIGHT SIDE DESCRIPTION*/
 
+/* SECOND ROW >>> */
+.second-row{
+    margin-top: 60px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9ad9b;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23ffffff' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%231f1c20' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23dbdbdb' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%233c353a' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23b7b7b7' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%235b5155' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23959595' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%237d6e71' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23747474' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23a08d8d' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23555555' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23c3adaa' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+.search-form {
+    width: 90%;
+    padding: auto 5%;
+    .search-field{
+        // width: 70%;
+        border-radius: 50px;
+    }
+    .search-submit{
+        // width: 30%;
+      border-radius: 5px;
+      padding: 16px 30px;
+      background: var(--black) !important;
+      color: var(--color_primary) !important;
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+      transition: all .5s ease-in-out;
+      &:hover{
+        background: lighten($color: #ffffff, $amount: 0) !important;
+        color: var(--third);
+      }
+    }
 
- 
+}
+
+.taxonomy-1{
+    // position: relative;
+    width: 100px;
+    height: 100px;
+    background: rebeccapurple;
+/* <<< SECOND ROW */
