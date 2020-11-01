@@ -81,7 +81,6 @@
 
 <!-- SECOND ROW -->
 	<div class="post-inner second-row <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
-	
 			<?php
 		if ( ! is_search() ) {
 					get_template_part( 'searchform' );
@@ -89,41 +88,44 @@
 		?>
 	</div>
 <!-- SECOND ENDS -->
-		<div class="taxonomies">
-			<?php 
-				$icons = get_field('icons');
-				$terms = $icons["taxonomies"];
-			?>
-				<div class='taxonomy_icon_one'>
-					<?php if( $terms ): ?>
-						<a href="<?php echo get_term_link( $terms[0] ); ?>">
-						<?php echo get_term_by('name', $term) ?>
-						<img src=<?php echo $icons['taxonomy_icon_one'];?>>
-						</a>
-					<?php endif; ?>
-				</div>
-				<div class='taxonomy_icon_two'>
-					<?php if( $terms ): ?>
-						<a href="<?php echo get_term_link( $terms[1] ); ?>">
-						<?php echo get_term_by('slug', $term) ?>
-						<img src=<?php echo $icons['taxonomy_icon_two'];?>>
-						</a>
-					<?php endif; ?>
-				</div>
-				<div class='taxonomy_icon_three'>
-					<?php if( $terms ): ?>
-						<a href="<?php echo get_term_link( $terms[2] ); ?>">
-						<?php echo get_term_by('slug', $term) ?>
-						<img src=<?php echo $icons['taxonomy_icon_three'];?>>
-						</a>
-					<?php endif; ?>
-				</div>
-
-		</div>
-
+<!-- THIRD STARTS -->
+<div class="taxonomies">
 	<?php 
-	}
-	?>
+		$icons = get_field('icons');
+		$terms = $icons["taxonomies"];
+		?>
+			<div class='taxonomy_icon_one taxonomy'>
+				<?php if( $terms ): ?>
+					<a href="<?php echo get_term_link( $terms[0] ); ?>">
+					<?php echo get_term_by('name', $term) ?>
+					<img src=<?php echo $icons['taxonomy_icon_one'];?>>
+				<h4 class="taxonomy__title"><?php echo $terms[0]->name ?></h4>	
+				</a>
+				<?php endif; ?>
+			</div>
+			<div class='taxonomy_icon_two taxonomy'>
+				<?php if( $terms ): ?>
+					<a href="<?php echo get_term_link( $terms[1] ); ?>">
+						
+						<img src=<?php echo $icons['taxonomy_icon_two'];?>>
+						<h4 class="taxonomy__title"><?php echo $terms[1]->name ?></h4>	
+					</a>
+				<?php endif; ?>
+			</div>
+			<div class='taxonomy_icon_three taxonomy'>
+				<?php if( $terms ): ?>
+					<a href="<?php echo get_term_link( $terms[2] ); ?>">
+						<?php echo get_term_by('slug', $term) ?>
+					<img src=<?php echo $icons['taxonomy_icon_three'];?>>
+					<h4 class="taxonomy__title"><?php echo $terms[2]->name ?></h4>	
+					</a>
+				<?php endif; ?>
+			</div>
+		</div>
+	<?php 
+		}
+		?>
+	<!-- THIRD ENDS -->
 	<div class="section-inner">
 		<?php
 		wp_link_pages(
