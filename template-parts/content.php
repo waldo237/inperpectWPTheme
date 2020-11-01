@@ -87,23 +87,39 @@
 					get_template_part( 'searchform' );
 				}
 		?>
-		<div class="taxonomy-1">
-
-
-
-
-		
-
-		<?php get_template_part( './assets/icons/bahai.svg' ) ?>
-
-
-
-
-
-
-		</div>
 	</div>
 <!-- SECOND ENDS -->
+		<div class="taxonomies">
+			<?php 
+				$icons = get_field('icons');
+				$terms = $icons["taxonomies"];
+			?>
+				<div class='taxonomy_icon_one'>
+					<?php if( $terms ): ?>
+						<a href="<?php echo get_term_link( $terms[0] ); ?>">
+						<?php echo get_term_by('name', $term) ?>
+						<img src=<?php echo $icons['taxonomy_icon_one'];?>>
+						</a>
+					<?php endif; ?>
+				</div>
+				<div class='taxonomy_icon_two'>
+					<?php if( $terms ): ?>
+						<a href="<?php echo get_term_link( $terms[1] ); ?>">
+						<?php echo get_term_by('slug', $term) ?>
+						<img src=<?php echo $icons['taxonomy_icon_two'];?>>
+						</a>
+					<?php endif; ?>
+				</div>
+				<div class='taxonomy_icon_three'>
+					<?php if( $terms ): ?>
+						<a href="<?php echo get_term_link( $terms[2] ); ?>">
+						<?php echo get_term_by('slug', $term) ?>
+						<img src=<?php echo $icons['taxonomy_icon_three'];?>>
+						</a>
+					<?php endif; ?>
+				</div>
+
+		</div>
 
 	<?php 
 	}
