@@ -24,9 +24,7 @@
 		}
 	?>
 	
-
-
-	<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
+	<div class="post-inner lazy-effect <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
 		<div class="entry-content">
 			
 			<?php
@@ -40,24 +38,12 @@
 		</div><!-- .entry-content -->
 	</div>
 
-	<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
-		<div class="entry-content">
-			
-			<?php
-				if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
-					the_excerpt();
-				} else {
-					the_content( __( 'Continue reading', 'twentytwenty' ) );
-				}
-				?>
 
-		</div><!-- .entry-content -->
-	</div>
 	<?php 
 	}else{
 	?>
 
-	<div class="post-inner landing-page <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
+	<div class="post-inner landing-page lazy-effect <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
 		<div class="entry-content  landing-page">
 			
 			<?php
@@ -70,7 +56,7 @@
 
 		</div><!-- .entry-content -->
 
-		<div class="hero-image  landing-page">
+		<div class="hero-image  landing-page lazy-effect">
 			<?php
 				if ( ! is_search() ) {
 					get_template_part( 'template-parts/featured-image' );
@@ -94,7 +80,7 @@
 		$icons = get_field('icons');
 		$terms = $icons["taxonomies"];
 		?>
-			<div class='taxonomy_icon_one taxonomy'>
+			<div class='taxonomy_icon_one taxonomy lazy-effect'>
 				<?php if( $terms ): ?>
 					<a href="<?php echo get_term_link( $terms[0] ); ?>">
 					<?php echo get_term_by('name', $term) ?>
@@ -103,7 +89,7 @@
 				</a>
 				<?php endif; ?>
 			</div>
-			<div class='taxonomy_icon_two taxonomy'>
+			<div class='taxonomy_icon_two taxonomy lazy-effect'>
 				<?php if( $terms ): ?>
 					<a href="<?php echo get_term_link( $terms[1] ); ?>">
 						
@@ -112,7 +98,7 @@
 					</a>
 				<?php endif; ?>
 			</div>
-			<div class='taxonomy_icon_three taxonomy'>
+			<div class='taxonomy_icon_three taxonomy lazy-effect'>
 				<?php if( $terms ): ?>
 					<a href="<?php echo get_term_link( $terms[2] ); ?>">
 						<?php echo get_term_by('slug', $term) ?>

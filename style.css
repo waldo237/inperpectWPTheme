@@ -65,7 +65,7 @@ with others.
     position: absolute;
     font-size: 1.8em;
     letter-spacing: 3px;
-    font-weight: 100;
+    font-weight: 200;
     color: var(--color_primary);
     margin-top: 0;
     padding-top: 0;
@@ -191,9 +191,12 @@ a:focus {
       grid-column: 1/2;
       width: 392px; } }
   .entry-content.landing-page .welcome {
-    font-size: .9em;
+    font-size: 80%;
     font-weight: 600;
     color: var(--color_secondary); }
+    @media (min-width: 350px) {
+      .entry-content.landing-page .welcome {
+        font-size: 1.2em; } }
     @media (min-width: 999px) {
       .entry-content.landing-page .welcome {
         font-size: 1.2em; } }
@@ -295,12 +298,13 @@ a:focus {
     color: var(--color_primary) !important;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     transition: all .5s ease-in-out; }
-    .search-form .search-submit:hover {
+    .search-form .search-submit:hover, .search-form .search-submit:active {
       background: white !important;
       color: var(--third); }
 
 .taxonomies {
   width: 100%;
+  max-width: 2200px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -308,32 +312,63 @@ a:focus {
   justify-content: center; }
   @media (min-width: 640px) {
     .taxonomies {
-      height: 450px;
+      height: 480px;
       flex-direction: row;
       justify-content: space-evenly; } }
   .taxonomies .taxonomy {
-    width: 40%;
+    width: 42%;
+    padding: 2%;
     margin: 30px auto;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     text-align: center;
-    flex-wrap: nowrap; }
+    flex-wrap: nowrap;
+    transition: all .4s ease-in-out;
+    position: relative; }
     @media (min-width: 640px) {
       .taxonomies .taxonomy {
-        margin: auto;
-        width: 18%;
+        width: 20%;
         font-size: .8em; } }
     @media (min-width: 999px) {
       .taxonomies .taxonomy {
         font-size: 1em; } }
-    .taxonomies .taxonomy a {
-      text-decoration: none !important; }
-      .taxonomies .taxonomy a:hover {
-        color: var(--color_primary) !important; }
+    .taxonomies .taxonomy::before {
+      border-right: 10px solid var(--color_primary);
+      border-top: 10px solid var(--color_primary);
+      content: "";
+      position: absolute;
+      width: 22vw;
+      height: 22vw;
+      background: var(--black) !important;
+      z-index: -2;
+      border-radius: 50%; }
+      @media (min-width: 640px) {
+        .taxonomies .taxonomy::before {
+          width: 14vw;
+          height: 14vw; } }
+      @media (min-width: 999px) {
+        .taxonomies .taxonomy::before {
+          width: 12vw;
+          height: 12vw;
+          max-height: 267px;
+          max-width: 267px; } }
+    .taxonomies .taxonomy img {
+      margin: auto;
+      transition: all .6s ease-in-out; }
     .taxonomies .taxonomy__title {
       font-size: 1em;
       text-transform: uppercase;
-      color: var(--color_secondary) !important; }
+      color: var(--color_secondary) !important;
+      transition: all .4s ease-in-out; }
+      .taxonomies .taxonomy__title:hover, .taxonomies .taxonomy__title:active {
+        color: var(--color_primary) !important; }
+    .taxonomies .taxonomy:hover, .taxonomies .taxonomy:active {
+      border-radius: 10px; }
+      .taxonomies .taxonomy:hover img, .taxonomies .taxonomy:active img {
+        opacity: .8;
+        transform: scale(1.1); }
+    .taxonomies .taxonomy a {
+      text-decoration: none !important; }
 
 /* <<< SECOND ROW */
 @-webkit-keyframes slideInRight {
@@ -343,3 +378,23 @@ a:focus {
 @keyframes slideInRight {
   100% {
     left: 0; } }
+
+.fadeInUpx {
+  opacity: 0;
+  animation: fadeInUpx .7s ease-in-out both;
+  -webkit-animation: fadeInUpx .7s ease-in-out both; }
+
+/* Animation */
+@keyframes fadeInUpx {
+  from {
+    transform: translate3d(0, 40px, 0); }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1; } }
+
+@-webkit-keyframes fadeInUpx {
+  from {
+    transform: translate3d(0, 40px, 0); }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1; } }
