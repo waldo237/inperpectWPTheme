@@ -108,10 +108,51 @@
 				<?php endif; ?>
 			</div>
 		</div>
+	
+	<!-- THIRD ENDS -->
+	<!-- FOURTH STARTS -->
+	<!-- "title": "The wonderful journey",
+			"excerpt": "<p>This shares my experiences about the unforgetfull cities of the world</p>\n",
+			"content": "This is content",
+			"date": "2020-05-25T08:43:18",
+			"uri": "/the-unforgetful-cities/",
+			"featuredImage": -->
+	<div class="latest">
+		
+			<?php 
+				$the_query = new WP_Query( 'posts_per_page=3' ); ?>
+
+				<?php 
+				while ($the_query -> have_posts()) : $the_query -> the_post(); 
+				?>
+				<div class="latest__post_wrapper">
+					<div class="latest__post">
+						<img class="latest__post__img" src="<?php the_post_thumbnail_url('medium' ) ?>"/>
+						<div class="latest__post__inner">
+							<h5 class="latest__post__title"><?php the_title(); ?></h5>
+							<p class="latest__post__excerpt"><?php the_excerpt(__('(more…)')); ?></p>
+							<a href="<?php the_permalink() ?>">	<button class="latest__post__btn">lire plus</button></a>
+						</div>
+					</div>
+
+				</div>
+				
+				<?php 
+				// Repeat the process and reset once it hits the limit
+				endwhile;
+				wp_reset_postdata();
+			?>
+ </div>
+
+	<!-- FOURTH ENDS -->
 	<?php 
 		}
 		?>
-	<!-- THIRD ENDS -->
+
+
+
+
+
 	<div class="section-inner">
 		<?php
 		wp_link_pages(
