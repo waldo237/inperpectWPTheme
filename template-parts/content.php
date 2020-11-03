@@ -118,6 +118,9 @@
 			"uri": "/the-unforgetful-cities/",
 			"featuredImage": -->
 	<div class="latest">
+		<h3 class="latest__heading">
+	<?php	echo get_field('latest_post_title'); ?>
+			</h3>
 		
 			<?php 
 				$the_query = new WP_Query( 'posts_per_page=3' ); ?>
@@ -125,7 +128,7 @@
 				<?php 
 				while ($the_query -> have_posts()) : $the_query -> the_post(); 
 				?>
-				<div class="latest__post_wrapper">
+				<div class="latest__post_wrapper lazy-effect">
 					<div class="latest__post">
 						<img class="latest__post__img" src="<?php the_post_thumbnail_url('medium' ) ?>"/>
 						<div class="latest__post__inner">
