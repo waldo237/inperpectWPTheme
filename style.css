@@ -238,6 +238,7 @@ a:focus {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  max-width: 850px;
   left: 0%;
   right: 0%;
   justify-content: center;
@@ -436,11 +437,13 @@ a:focus {
       display: block;
       border-radius: 5px;
       margin: auto;
-      object-fit: cover; }
+      object-fit: cover;
+      margin: 3% auto; }
       @media (min-width: 999px) {
         .latest__post__img {
           grid-column: 1/2;
-          height: 100%; } }
+          height: 100%;
+          margin: auto 3%; } }
     .latest__post p {
       color: var(--color_secondary);
       overflow: hidden;
